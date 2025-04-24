@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Therapy Management, Medical, Admin, User">
+    <meta name="description" content="Therapy Management System">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Therapy Management Team">
+
+    <!-- Title -->
+    <title>Therapy Management System</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Navigation Bar Styling */
+        .header {
+            padding: 15px 0;
+            background-color: #ffffff; /* White background */
+            color: #333333; /* Dark text for contrast */
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header .logo img {
+            vertical-align: middle;
+            width: 100px; /* Increased logo size */
+        }
+
+        .header .logo span {
+            color: #333333; /* Dark color for logo text */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav.menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav.menu li {
+            display: inline-block;
+        }
+
+        .nav.menu a {
+            text-decoration: none;
+            color: #333333; /* Dark color for navigation links */
+            font-weight: 500;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav.menu a:hover {
+            background-color: #007bff; /* Blue background on hover */
+            color: white;
+        }
+
+        /* Settings Icon and Dropdown */
+        .settings {
+            position: relative;
+            display: inline-block;
+        }
+
+        .settings img {
+            width: 40px;
+            height: 35px;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 45px;
+            right: 15px;
+            display: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 10px 25px;
+            color: #333333; /* Dark text for dropdown items */
+            text-decoration: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa; /* Light background on hover */
+        }
+
+        /* Hero Section Styling */
+        .slider {
+            margin-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .hero-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .single-slider {
+            background-size: cover;
+            background-position: center;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .single-slider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .text h1 {
+            font-size: 3em;
+            font-weight: 600;
+        }
+
+        .text p {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .button a {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 30px;
+            transition: background-color 0.3s;
+        }
+
+        .button a:hover {
+            background-color: #0056b3;
+        }
+
+        /* About Us Section Styling */
+        .about-us {
+            padding: 50px 0;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .about-us h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .about-us p {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Regenerative Therapies Section Styling */
+.regenerative-therapies {
+    padding: 50px 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.regenerative-therapies h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.regenerative-therapies p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.regenerative-therapies h3 {
+    font-size: 1.8em;
+    margin-top: 30px;
+    color: #333;
+}
+
+.therapy-types {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.therapy {
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.therapy img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.therapy:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.therapy h4 {
+    font-size: 1.5em;
+    margin-top: 15px;
+    color: #007bff;
+}
+
+.therapy p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Importance Section Styling */
+.importance {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.importance h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.importance p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Nearest Hospitals Section Styling */
+.nearest-hospitals {
+    padding: 50px 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.nearest-hospitals h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.nearest-hospitals p {
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.hospital-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.hospital {
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.hospital img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.hospital:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hospital h3 {
+    font-size: 1.6em;
+    margin-top: 15px;
+    color: #007bff;
+}
+
+.hospital p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Chatbot Section Styling */
+.chatbot {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+    animation: bounceIn 1.5s ease-in-out;
+}
+
+.chatbot h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.chatbot p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+#chatbotBtn {
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#chatbotBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Bounce-in Animation */
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    60% { opacity: 1; transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Natural Methods of Treatment Section Styling */
+.natural-methods {
+    padding: 50px 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.natural-methods h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.natural-methods p {
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.natural-methods ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.natural-methods ul li {
+    font-size: 1.2em;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+        .testimonials {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial h5 {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .testimonial p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        /* Contact Section Styling */
+        .contact {
+            background-color: #343a40;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        
+        /* Footer Section Styling */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer .social-icons a {
+            margin: 0 15px;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer .social-icons a:hover {
+            color: #007bff;
+        }
+
+        @media (max-width: 768px) {
+            .nav.menu {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .hero-slider {
+                height: 300px;
+            }
+
+            .text h1 {
+                font-size: 2.5em;
+            }
+
+            .about-us p {
+                font-size: 1em;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- Logo Section -->
+                <div class="logo">
+                    <a href="#">
+                        <img src="/img/tech.png" alt="Therapy Logo">
+                    </a>
+                </div>
+
+                <!-- Navigation Section -->
+                <nav class="navigation">
+                    <ul class="nav menu">
+                        <li><a href="user-action.html">Home</a></li>
+                        <li><a href="search.html">View Therapies</a></li>
+                        <li><a href="feedback.html">Give Feedback</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="logout.html">Logout</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Settings Icon and Dropdown -->
+                <div class="settings">
+                    <img src="/img/settings-icon.jpeg" alt="Settings" id="settingsButton">
+                    <div id="settingsMenu" class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="settings.html">Settings</a>
+                        <a class="dropdown-item" href="research.html">Research </a>
+                        <a class="dropdown-item" href="news.html">Latest News</a>
+                        <a class="dropdown-item" href="user-blog.html">Latest Blogs</a>
+                        <a class="dropdown-item" href="reso.html">Extra Resources</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Slider Section -->
+    <section class="slider">
+        <div class="hero-slider">
+            <div class="single-slider" style="background-image:url('/img/slider.jpg')">
+                <div class="text">
+                    <h1>Reliable <span>Therapies</span> You Can Trust</h1>
+                    <p>We offer a variety of therapies tailored to meet your needs. Start your healing journey today.</p>
+                    <div class="button">
+                        <a href="#">View Therapies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regenerative Therapies Section -->
+<!-- Regenerative Therapies Section -->
+<section class="regenerative-therapies">
+    <div class="container">
+        <h2>Introduction to Regenerative Therapies</h2>
+        <p>Regenerative therapies involve treatments that aim to replace or regenerate damaged tissues and organs. These therapies include stem cell treatments, tissue engineering, and gene editing techniques. With the advancement of medical science, regenerative therapies are becoming a promising solution for a variety of conditions.</p>
+        
+        <h3>Types of Regenerative Therapies</h3>
+        <div class="therapy-types">
+            <div class="therapy">
+                <img src="/img/stem-cell.jpg" alt="Stem Cell Therapy">
+                <h4>Stem Cell Therapy</h4>
+                <p>Uses stem cells to repair damaged tissues or organs.</p>
+            </div>
+            <div class="therapy">
+                <img src="/img/Tissue_engineering.jpg" alt="Tissue Engineering">
+                <h4>Tissue Engineering</h4>
+                <p>Involves creating artificial organs or tissues in the lab.</p>
+            </div>
+            <div class="therapy">
+                <img src="/img/gene-therapy.jpg" alt="Gene Therapy">
+                <h4>Gene Therapy</h4>
+                <p>A technique that modifies genes to treat or prevent diseases.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Importance of Regenerative Therapies Section -->
+<section class="importance">
+    <div class="container">
+        <h2>The Importance of Regenerative Therapies</h2>
+        <p>Regenerative therapies offer great potential for treating various chronic and degenerative diseases. These therapies can help restore function, reduce reliance on medication, and improve the overall quality of life. The application of regenerative medicine can also reduce the need for organ transplants and provide an alternative treatment for patients with limited options.</p>
+    </div>
+</section>
+
+<!-- Nearest Hospitals Section -->
+<section class="nearest-hospitals">
+    <div class="container">
+        <h2>Nearest Hospitals Offering Regenerative Therapies</h2>
+        <p>Here are some hospitals that provide regenerative therapies in your vicinity. These hospitals are equipped with the latest technologies and trained professionals to deliver the best treatment for your needs.</p>
+
+        <div class="hospital-list">
+            <div class="hospital">
+                <img src="path_to_image/abc-hospital.jpg" alt="ABC Medical Center">
+                <h3>ABC Medical Center</h3>
+                <p>Located in [City], ABC Medical Center offers advanced stem cell therapies and tissue regeneration services.</p>
+            </div>
+            <div class="hospital">
+                <img src="path_to_image/xyz-hospital.jpg" alt="XYZ Health Institute">
+                <h3>XYZ Regenerative Health Institute</h3>
+                <p>Located in [City], XYZ Health Institute specializes in PRP therapy and gene therapy treatments.</p>
+            </div>
+            <div class="hospital">
+                <img src="path_to_image/healing-hospital.jpg" alt="Healing Touch Hospital">
+                <h3>Healing Touch Hospital</h3>
+                <p>Located in [City], Healing Touch Hospital provides a variety of regenerative therapies including stem cell and platelet-rich plasma treatments.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Natural Methods of Treatment Section -->
+<section class="natural-methods">
+    <div class="container">
+        <h2>Other Natural Methods of Treatment</h2>
+        <p>Besides regenerative therapies, there are several other natural methods of treatment that can complement your healing process. These methods are non-invasive and focus on improving overall health.</p>
+
+        <ul>
+            <li><strong>Acupuncture:</strong> Involves inserting fine needles into the skin to stimulate energy flow.</li>
+            <li><strong>Chiropractic Care:</strong> Focuses on spinal manipulation and alignment to relieve pain.</li>
+            <li><strong>Aromatherapy:</strong> Uses essential oils to promote relaxation and pain relief.</li>
+            <li><strong>Herbal Treatments:</strong> Utilizes natural plant-based remedies for healing and pain management.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="chatbot">
+    <div class="container">
+        <h2>Need Help? Chat with Our Virtual Assistant</h2>
+        <p>Our chatbot is available to answer your questions regarding regenerative therapies, treatments, and other related queries. Simply click the button below to start a chat!</p>
+        <button id="chatbotBtn">Start Chat</button>
+    </div>
+</section>
+
+
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <div class="container">
+            <h2>About Our Therapy Management System</h2>
+            <p>We provide a comprehensive platform for managing therapies, medical consultations, and patient care. Our system is designed to assist both therapists and patients in finding the right treatments, providing feedback, and staying up-to-date with the latest advancements in medical therapies.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Users Are Saying</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial">
+                        <p>"The therapy management system helped me find the most effective treatments for my condition. Highly recommend!"</p>
+                        <h5>John Doe</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial">
+                        <p>"Highly recommend! I was able to find the perfect treatment for my condition thanks to this system."</p>
+                        <h5>Jane Smith</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial">
+                        <p>"The therapy management system made my recovery smooth and efficient. Great user experience!"</p>
+                        <h5>Michael Johnson</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>&copy; 2024 Therapy Management System. All Rights Reserved.</p>
+                    <div class="social-icons">
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('settingsButton').addEventListener('click', function () {
+            const menu = document.getElementById('settingsMenu');
+            menu.classList.toggle('show');
+        });
+    </script>
+
+</body>
+</html>

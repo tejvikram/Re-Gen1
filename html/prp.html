@@ -1,0 +1,238 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="PRP Therapy, Medical, Regenerative Treatments">
+    <meta name="description" content="Explore Platelet-Rich Plasma Therapy and its applications in regenerative medicine.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Platelet-Rich Plasma Therapy - Fit Life</title>
+    
+    <link rel="icon" href="/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Add styles for the floating content */
+        .floating-content {
+            position: fixed;
+            top: 20px; 
+            right: -320px; 
+            width: 320px;
+            height: 80%; 
+            background-color: #fff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            transition: right 0.3s ease-in-out;
+            z-index: 1000; 
+            overflow-y: auto; 
+        }
+
+        .floating-content.active {
+            right: 20px; 
+        }
+
+        .chatbot-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: #ff4c4c;
+            border: none;
+            color: white;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #ff0000;
+        }
+
+        .chatbot-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .chatbot-message.bot {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .chatbot-message.user {
+            background-color: #d9f9d9;
+            color: #333;
+            align-self: flex-end;
+        }
+
+        .chatbot-body {
+            margin-bottom: 20px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .chatbot-input input {
+            width: 80%;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .chatbot-input button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background-color: #218838;
+        }
+
+        .chatbot-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header Area -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="home.html"><img src="/img/tech.png" alt="Fit Life Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="therapies.html">Home</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="logout.html">Logout</a></li>
+                                <li><a href="javascript:void(0);" id="chatbotIcon"><img src="/img/chatbot-icon.png" alt="Chatbot" style="width: 30px;"></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="content">
+        <h1>Platelet-Rich Plasma (PRP) Therapy</h1>
+
+        <h2>What is Platelet-Rich Plasma (PRP)?</h2>
+        <p>Platelet-Rich Plasma (PRP) is a concentration of platelets derived from a sample of a patient’s own blood. This concentration contains growth factors and proteins that are involved in the healing process. PRP therapy involves isolating this plasma from the blood and injecting it into areas of the body that require treatment.</p>
+
+        <img src="/img/prp-therapy.jpg" alt="Platelet-Rich Plasma Therapy">
+
+        <h2>Applications of PRP Therapy</h2>
+        <p>PRP therapy is used in orthopedics, aesthetics, and more. It can help reduce inflammation, promote healing, and improve skin texture or hair density.</p>
+
+        <h2>Procedure</h2>
+        <p>The process involves drawing blood, separating platelets, and injecting the concentrated plasma into the treatment area. Recovery is quick, with minimal downtime.</p>
+
+        <img src="/img/prp-procedure.jpg" alt="PRP Therapy Procedure">
+        <h2>Publications</h2>
+    <ul>
+        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6867222/" target="_blank">Platelet-Rich Plasma Therapy: A Review</a></li>
+        <li><a href="https://www.sciencedirect.com/science/article/pii/S2211563820300859" target="_blank">Recent Advances in Platelet-Rich Plasma Therapy</a></li>
+        <li><a href="https://www.frontiersin.org/articles/10.3389/fmed.2020.00321/full" target="_blank">Platelet-Rich Plasma in Orthopedics: A Review</a></li>
+    </ul>
+
+        <h2>Register for Webinars</h2>
+        <p>Learn more about PRP therapy through our educational webinars. Sign up today!</p>
+        <a href="https://forms.gle/your-google-form-link" class="register-btn" target="_blank">Register Now</a>
+    </section>
+
+    <!-- Chatbot Container -->
+    <div class="floating-content" id="floatingContent">
+        <div class="chatbot-header">
+            PRP Therapy Chatbot
+            <button class="close-btn" onclick="closeChatbot()">&times;</button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chatbot-message bot">Hi! How can I assist you with PRP Therapy?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your question here...">
+            <button onclick="handleChatbotQuery()">Send</button>
+        </div>
+    </div>
+
+    <!-- Custom JS file link -->
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('chatbotIcon').addEventListener('click', function() {
+            const floatingContent = document.getElementById('floatingContent');
+            floatingContent.classList.toggle('active');
+        });
+
+        function closeChatbot() {
+            const floatingContent = document.getElementById('floatingContent');
+            floatingContent.classList.remove('active');
+        }
+
+        function handleChatbotQuery() {
+            const inputField = document.getElementById('chatbotInput');
+            const chatbotBody = document.getElementById('chatbotBody');
+            const userMessage = inputField.value.trim();
+
+            if (userMessage) {
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'chatbot-message user';
+                userMessageDiv.textContent = userMessage;
+                chatbotBody.appendChild(userMessageDiv);
+
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.className = 'chatbot-message bot';
+                botMessageDiv.textContent = "Let me assist you with your query about PRP Therapy.";
+                chatbotBody.appendChild(botMessageDiv);
+
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
+                inputField.value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>

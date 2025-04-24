@@ -1,0 +1,148 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Delete Therapy, Therapy Management, Admin">
+    <meta name="description" content="Delete Therapy for Therapy Management System">
+    <meta name='copyright' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Delete Therapy</title>
+    
+    <link rel="icon" href="/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Header Area -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="admin-action.html"><img src="/img/tech.png" alt="Therapy Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="admin-action.html">Home</a></li>
+                                <li><a href="admin-search.html">View Therapies</a></li>
+                                <li><a href="admin-feedback.html">Give Feedback</a></li>
+                                <li><a href="admin-profile.html">Profile</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Delete Therapy Section -->
+    <section class="delete-therapy my-5">
+        <div class="container">
+            <h2>Delete Therapy</h2>
+            <form id="delete-therapy-form">
+                <div class="form-group">
+                    <label for="therapy-id">Therapy ID</label>
+                    <input type="number" id="therapy-id" class="form-control" placeholder="Enter therapy ID to delete" required>
+                </div>
+                <button type="submit" class="btn btn-danger">Delete Therapy</button>
+            </form>
+
+            <!-- Success Message -->
+            <div id="success-message" class="alert alert-success d-none mt-3" role="alert">
+                <!-- Success messages will be displayed here -->
+            </div>
+
+            <!-- Error Message -->
+            <div id="delete-error-message" class="alert alert-danger d-none mt-3" role="alert">
+                <!-- Error messages will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="footer bg-dark text-white text-center py-3 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-content">
+                        <p class="mb-0">&copy; 2024 Therapy Management System. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteForm = document.getElementById('delete-therapy-form');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('delete-error-message');
+    
+            deleteForm.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+    
+                const therapyIdInput = document.getElementById('therapy-id');
+                const therapyId = therapyIdInput.value.trim();
+    
+                if (therapyId === '') {
+                    displayError('Please enter a valid Therapy ID.');
+                    return;
+                }
+                
+                if (!confirm(`Are you sure you want to delete therapy with ID ${therapyId}? This action cannot be undone.`)) {
+                    return;
+                }
+    
+                const apiUrl = `http://localhost:8080/api/admin/delete-therapy/${therapyId}`;
+    
+                fetch(apiUrl, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json().then(data => ({ status: response.status, body: data })))
+                .then(({ status, body }) => {
+                    if (status === 200) {
+                        displaySuccess(body.msg || 'Therapy deleted successfully.');
+                        deleteForm.reset(); 
+                    } else {
+                        displayError(body.msg || 'Failed to delete therapy.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting therapy:', error);
+                    displayError('An unexpected error occurred. Please try again later.');
+                });
+            });
+    
+            function displaySuccess(message) {
+                successMessage.textContent = message;
+                successMessage.classList.remove('d-none');
+                errorMessage.classList.add('d-none');
+            }
+    
+            function displayError(message) {
+                errorMessage.textContent = message;
+                errorMessage.classList.remove('d-none');
+                successMessage.classList.add('d-none');
+            }
+        });
+    </script>
+    
+
+</body>
+</html>

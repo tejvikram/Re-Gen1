@@ -1,0 +1,141 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Logout, Therapy Management, User">
+    <meta name="description" content="Logout from Therapy Management System">
+    <meta name='copyright' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Title -->
+    <title>Logout</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Header Area -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <!-- Logo Section -->
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="user-action.html">
+                            <img src="/img/tech.png" alt="Therapy Logo">
+                        </a>
+                    </div>
+                </div>
+                <!-- Navigation Menu -->
+                <div class="col-lg-9">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="user-action.html">Home</a></li>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="register.html">Register</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Logout Section -->
+    <section class="logout my-5">
+        <div class="container text-center">
+            <h2>You want to logout!</h2>
+            <p>Thank you for using the Therapy Management System.</p>
+            <button class="btn btn-primary"><a href="login.html" id="logout-button">Logout</a></button> 
+            <p>We hope to see you again soon.</p>
+        </div>
+    </section>
+    <!-- End Logout Section -->
+
+    <!-- Footer Section -->
+    <footer id="footer" class="footer bg-dark text-white text-center py-3 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-content">
+                        <p>&copy; 2024 Therapy Management System. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('msg');
+    if (message) {
+        alert(decodeURIComponent(message));
+    }
+
+    const logoutButton = document.getElementById('logout-button');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function(event) {
+            event.preventDefault(); 
+
+           
+            fetch('http://localhost:8080/api/admin/logout', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                console.log("Logout response status:", response.status); 
+                if (response.ok) {
+                    response.json().then(data => {
+                        console.log("Logout response data:", data); 
+                        window.location.href = 'admin-login.html';
+                        alert(data.msg);
+                    }).catch(error => {
+                        console.error('Error parsing logout response:', error);
+                        alert('An error occurred during logout.');
+                        alert(data.msg);
+                    });
+                } else {
+                    response.json().then(data => {
+                        console.error('Logout failed with message:', data.msg);
+                        alert('Logout failed. Please try again.');
+                    }).catch(error => {
+                        console.error('Error reading response:', error);
+                        alert('An error occurred during logout.');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error during logout:', error);
+                alert('An error occurred during logout.');
+            });
+        });
+    }
+});
+
+    </script>
+
+</body>
+</html>

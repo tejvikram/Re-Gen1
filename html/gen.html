@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.png">
+    <title>Custom Search Engine</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+.result {
+    margin-bottom: 20px;
+}
+
+.result h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.result h2 a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.result h2 a:hover {
+    text-decoration: underline;
+}
+
+.result p {
+    margin: 5px 0;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Search Therapy Engine</h1>
+        <input type="text" id="searchQuery" placeholder="Enter your search query">
+        <button onclick="performSearch()">Search</button>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // Your API key and Search Engine ID
+        const API_KEY = 'AIzaSyDAn5xlQVcgOjXTj79njI4gvlynbDENJdM';
+        const SEARCH_ENGINE_ID = '76de277dd4be94f69';
+
+        function performSearch() {
+            const query = document.getElementById('searchQuery').value;
+            if (!query) {
+                alert('Please enter a search query.');
+                return;
+            }
+
+            const url = `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(query)}&key=${API_KEY}&cx=${SEARCH_ENGINE_ID}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => displayResults(data))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function displayResults(data) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            if (data.items) {
+                data.items.forEach(item => {
+                    const result = document.createElement('div');
+                    result.classList.add('result');
+                    result.innerHTML = `
+                        <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+                        <p>${item.snippet}</p>
+                    `;
+                    resultsDiv.appendChild(result);
+                });
+            } else {
+                resultsDiv.innerHTML = '<p>No results found.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

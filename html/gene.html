@@ -1,0 +1,252 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="PRP Therapy, Medical, Regenerative Treatments">
+    <meta name="description" content="Explore Platelet-Rich Plasma Therapy and its applications in regenerative medicine.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Platelet-Rich Plasma Therapy - Fit Life</title>
+    
+    <link rel="icon" href="/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Add styles for the floating content */
+        .floating-content {
+            position: fixed;
+            top: 20px; 
+            right: -320px; 
+            width: 320px;
+            height: 80%; 
+            background-color: #fff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            transition: right 0.3s ease-in-out;
+            z-index: 1000; 
+            overflow-y: auto; 
+        }
+
+        .floating-content.active {
+            right: 20px; 
+        }
+
+        .chatbot-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: #ff4c4c;
+            border: none;
+            color: white;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #ff0000;
+        }
+
+        .chatbot-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .chatbot-message.bot {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .chatbot-message.user {
+            background-color: #d9f9d9;
+            color: #333;
+            align-self: flex-end;
+        }
+
+        .chatbot-body {
+            margin-bottom: 20px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .chatbot-input input {
+            width: 80%;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .chatbot-input button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background-color: #218838;
+        }
+
+        .chatbot-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header Area -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="home.html"><img src="/img/tech.png" alt="Fit Life Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="therapies.html">Home</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="logout.html">Logout</a></li>
+                                <li><a href="javascript:void(0);" id="chatbotIcon"><img src="/img/chatbot-icon.png" alt="Chatbot" style="width: 30px;"></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="content">
+        <h1>Gene Therapy</h1>
+    
+        <h2>What is Gene Therapy?</h2>
+        <p>Gene therapy is a revolutionary medical field that involves altering the genes inside your body's cells to treat or prevent disease. This technique allows doctors to treat a disorder by inserting a gene into a patient's cells instead of using drugs or surgery. Gene therapy can be used to replace a mutated gene with a healthy copy, inactivate a malfunctioning gene, or introduce a new gene to help fight a disease.</p>
+    
+        <img src="/img/gene-therapy.jpg" alt="Gene Therapy">
+    
+        <h2>Types of Gene Therapy</h2>
+    
+        <h3>1. Somatic Gene Therapy</h3>
+        <p>Somatic gene therapy involves inserting genes into the somatic (body) cells. This type of therapy is not inherited by future generations. It aims to cure or alleviate symptoms in an individual patient. Somatic gene therapy is used in treating conditions like cystic fibrosis, muscular dystrophy, and cancer.</p>
+    
+        <h3>2. Germline Gene Therapy</h3>
+        <p>Germline gene therapy involves inserting genes into germ cells (sperm or eggs). This type of therapy results in changes that are heritable, meaning they are passed on to future generations. Germline gene therapy has the potential to eliminate genetic diseases from the family line, but it raises significant ethical and safety concerns and is not currently practiced in humans.</p>
+    
+        <img src="/img/Types-of-Gene-Therapy.jpg" alt="Types of Gene Therapy">
+    
+        <h2>Applications of Gene Therapy</h2>
+        <p>Gene therapy has a wide range of applications. It has the potential to treat inherited genetic disorders, such as cystic fibrosis and hemophilia, by correcting defective genes. In cancer treatment, gene therapy can be used to enhance the body's natural ability to fight cancer or make the cancer cells more sensitive to other treatments. Gene therapy is also being explored for its potential to treat infectious diseases, like HIV, by making the body's cells resistant to the virus.</p>
+    
+        <h2>Recent Developments in Gene Therapy</h2>
+        <p>Recent advances in gene therapy have led to successful treatments for several genetic disorders. For example, gene therapy has been used to treat spinal muscular atrophy, a severe genetic disorder that affects muscle strength and movement. Researchers are also developing CRISPR-based gene editing technologies that allow for precise and targeted modifications to the genome, opening up new possibilities for treating a wide range of diseases.</p>
+    
+        <h2>Gene Therapy Procedures</h2>
+        <p>Gene therapy procedures typically involve several steps. First, the therapeutic gene is inserted into a vector, usually a virus that has been modified to remove its ability to cause disease. The vector then delivers the therapeutic gene into the patient's target cells. Once inside the cells, the gene is expressed, producing the necessary proteins to treat the disease. Patients are monitored to ensure the therapy is effective and to manage any potential side effects.</p>
+    
+        <img src="/img/Gene-therapy-procedure.jpg" alt="Gene Therapy Procedure">
+    
+        <h2>Publications</h2>
+        <ul>
+            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6562861/" target="_blank">Advances in Gene Therapy for Genetic Disorders</a></li>
+            <li><a href="https://www.sciencedirect.com/science/article/pii/S1525001620302402" target="_blank">Gene Therapy in Cancer Treatment: Recent Developments</a></li>
+            <li><a href="https://www.frontiersin.org/articles/10.3389/fmed.2020.00328/full" target="_blank">CRISPR and Gene Editing: Applications and Ethical Considerations</a></li>
+        </ul>
+    
+        <h2>Register for Videos and Webinars</h2>
+        <p>To stay updated on the latest developments in gene therapy, we offer a range of educational videos and webinars. Click the button below to register for our upcoming sessions.</p>
+        <a href="https://forms.gle/your-google-form-link" class="register-btn" target="_blank">Register Now</a>
+    </section>
+
+    <!-- Chatbot Container -->
+    <div class="floating-content" id="floatingContent">
+        <div class="chatbot-header">
+            PRP Therapy Chatbot
+            <button class="close-btn" onclick="closeChatbot()">&times;</button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chatbot-message bot">Hi! How can I assist you with PRP Therapy?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your question here...">
+            <button onclick="handleChatbotQuery()">Send</button>
+        </div>
+    </div>
+
+    <!-- Custom JS file link -->
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('chatbotIcon').addEventListener('click', function() {
+            const floatingContent = document.getElementById('floatingContent');
+            floatingContent.classList.toggle('active');
+        });
+
+        function closeChatbot() {
+            const floatingContent = document.getElementById('floatingContent');
+            floatingContent.classList.remove('active');
+        }
+
+        function handleChatbotQuery() {
+            const inputField = document.getElementById('chatbotInput');
+            const chatbotBody = document.getElementById('chatbotBody');
+            const userMessage = inputField.value.trim();
+
+            if (userMessage) {
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'chatbot-message user';
+                userMessageDiv.textContent = userMessage;
+                chatbotBody.appendChild(userMessageDiv);
+
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.className = 'chatbot-message bot';
+                botMessageDiv.textContent = "Let me assist you with your query about PRP Therapy.";
+                chatbotBody.appendChild(botMessageDiv);
+
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
+                inputField.value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>

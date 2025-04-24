@@ -1,0 +1,185 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="View Feedback, Therapy Management, Admin">
+    <meta name="description" content="View Feedback for Therapy Management System">
+    <meta name='copyright' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Title -->
+    <title>View Feedback</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Header Area -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="admin-action.html"><img src="/img/tech.png" alt="Therapy Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="admin-action.html">Home</a></li>
+                                <li><a href="admin-search.html">View Therapies</a></li>
+                                <li><a href="admin-feedback.html">Give Feedback</a></li>
+                                <li><a href="admin-profile.html">Profile</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header Area -->
+
+    <!-- View Feedback Section -->
+    <section class="view-feedback my-5">
+        <div class="container">
+            <h2 class="mb-4">Feedback from Users</h2>
+            
+            <!-- Loading Indicator -->
+            <div id="loading-indicator" class="text-center my-3">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p>Loading feedbacks...</p>
+            </div>
+            
+            <!-- Error Message -->
+            <div id="error-message" class="alert alert-danger d-none" role="alert">
+                <!-- Error messages will be displayed here -->
+            </div>
+            
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>S.no</th>
+                        <th>User</th>
+                        <th>Feedback</th>
+                        <th>Therapy</th>
+                    </tr>
+                </thead>
+                <tbody id="feedback-table-body">
+                    <!-- Dynamic feedback rows will be injected here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- End View Feedback Section -->
+
+    <!-- Footer Section -->
+    <footer id="footer" class="footer bg-dark text-white text-center py-3 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-content">
+                        <p class="mb-0">&copy; 2024 Therapy Management System. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script>
+        function fetchFeedbacks() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const errorMessage = document.getElementById('error-message');
+            const feedbackTableBody = document.getElementById('feedback-table-body');
+
+            loadingIndicator.classList.remove('d-none');
+            errorMessage.classList.add('d-none');
+            feedbackTableBody.innerHTML = ''; 
+
+            fetch('http://localhost:8080/api/admin/view-feedback') 
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+
+                    console.log('Feedback data received:', data);
+
+                    loadingIndicator.classList.add('d-none');
+
+                    if (data.length === 0) {
+                        feedbackTableBody.innerHTML = '<tr><td colspan="4" class="text-center">No feedbacks available.</td></tr>';
+                        return;
+                    }
+
+                    data.forEach((feedback, index) => {
+                        if (!feedback.user || !feedback.user.username) {
+                            console.warn(`Feedback #${index + 1} missing user information:`, feedback);
+                            return; 
+                        }
+                        if (!feedback.comment) {
+                            console.warn(`Feedback #${index + 1} missing comment:`, feedback);
+                            return;
+                        }
+                        if (!feedback.therapy || !feedback.therapy.name) {
+                            console.warn(`Feedback #${index + 1} missing therapy information:`, feedback);
+                            return; 
+                        }
+
+                        const row = document.createElement('tr');
+
+                        row.innerHTML = `
+                            <td>${index + 1}</td>
+                            <td>${sanitizeHTML(feedback.user.username)}</td>
+                            <td>${sanitizeHTML(feedback.comment)}</td>
+                            <td>${sanitizeHTML(feedback.therapy.name)}</td>
+                        `;
+
+                        feedbackTableBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching feedbacks:', error);
+
+                    loadingIndicator.classList.add('d-none');
+
+                    errorMessage.textContent = 'Failed to load feedbacks. Please try again later.';
+                    errorMessage.classList.remove('d-none');
+                });
+        }
+
+        function sanitizeHTML(str) {
+            const temp = document.createElement('div');
+            temp.textContent = str;
+            return temp.innerHTML;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchFeedbacks();
+        });
+    </script>
+
+</body>
+</html>

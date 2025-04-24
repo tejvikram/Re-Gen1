@@ -1,0 +1,226 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Cryotherapy, Medical, Wellness, Regenerative Treatments">
+    <meta name="description" content="Discover the benefits of Cryotherapy and its applications in medical and wellness fields.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Cryotherapy - Fit Life</title>
+    
+    <link rel="icon" href="/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Styles for floating chatbot */
+        .floating-content {
+            position: fixed;
+            top: 20px; 
+            right: -320px; 
+            width: 320px;
+            height: 80%; 
+            background-color: #fff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            transition: right 0.3s ease-in-out;
+            z-index: 1000; 
+            overflow-y: auto; 
+        }
+
+        .floating-content.active {
+            right: 20px; 
+        }
+
+        .chatbot-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: #ff4c4c;
+            border: none;
+            color: white;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #ff0000;
+        }
+
+        .chatbot-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .chatbot-message.bot {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .chatbot-message.user {
+            background-color: #d9f9d9;
+            color: #333;
+            align-self: flex-end;
+        }
+
+        .chatbot-input {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .chatbot-input input {
+            width: 80%;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .chatbot-input button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background-color: #218838;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header Area -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="home.html"><img src="/img/tech.png" alt="Fit Life Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="therapies.html">Home</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="javascript:void(0);" id="chatbotIcon"><img src="/img/chatbot-icon.png" alt="Chatbot" style="width: 30px;"></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="content">
+        <h1>Cryotherapy</h1>
+
+        <h2>What is Cryotherapy?</h2>
+        <p>Cryotherapy is a treatment method that uses extreme cold to address various medical and aesthetic conditions. It involves the application of cold temperatures locally or systematically to reduce inflammation, pain, and improve overall wellness.</p>
+
+        <img src="/img/cryotherapy-treatment.jpg" alt="Cryotherapy Treatment">
+
+        <h2>Applications of Cryotherapy</h2>
+        <p>Cryotherapy is widely used for injury recovery, inflammation reduction, and skin rejuvenation. Athletes often use whole-body cryotherapy to reduce muscle soreness and improve performance.</p>
+
+        <h2>Procedure</h2>
+        <p>The treatment involves localized application of cold compresses or entry into cryotherapy chambers for a few minutes at extremely low temperatures, depending on the type of treatment.</p>
+
+        <img src="/img/cryotherapy-chamber.jpg" alt="Cryotherapy Chamber">
+        <h2>Publications</h2>
+        <ul>
+            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6081408/" target="_blank">Cryotherapy: The Therapeutic Effects of Cold</a></li>
+            <li><a href="https://journals.sagepub.com/doi/10.1177/1753492807080113" target="_blank">Cryotherapy for Athletes: A Review of the Evidence</a></li>
+            <li><a href="https://www.sciencedirect.com/science/article/pii/S0022354917307381" target="_blank">The Effects of Cryotherapy on Muscle Recovery</a></li>
+        </ul>
+    
+
+        <h2>Register for Webinars</h2>
+        <p>Explore more about Cryotherapy by registering for our webinars. Sign up today to stay updated!</p>
+        
+    </section>
+
+    <!-- Chatbot Container -->
+    <div class="floating-content" id="floatingContent">
+        <div class="chatbot-header">
+            Cryotherapy Chatbot
+            <button class="close-btn" onclick="closeChatbot()">&times;</button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chatbot-message bot">Hi! How can I assist you with Cryotherapy?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your question here...">
+            <button onclick="handleChatbotQuery()">Send</button>
+        </div>
+    </div>
+
+    <!-- Custom JS file link -->
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('chatbotIcon').addEventListener('click', function() {
+            const floatingContent = document.getElementById('floatingContent');
+            floatingContent.classList.toggle('active');
+        });
+
+        function closeChatbot() {
+            const floatingContent = document.getElementById('floatingContent');
+            floatingContent.classList.remove('active');
+        }
+
+        function handleChatbotQuery() {
+            const inputField = document.getElementById('chatbotInput');
+            const chatbotBody = document.getElementById('chatbotBody');
+            const userMessage = inputField.value.trim();
+
+            if (userMessage) {
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'chatbot-message user';
+                userMessageDiv.textContent = userMessage;
+                chatbotBody.appendChild(userMessageDiv);
+
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.className = 'chatbot-message bot';
+                botMessageDiv.textContent = "Let me assist you with your query about Cryotherapy.";
+                chatbotBody.appendChild(botMessageDiv);
+
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
+                inputField.value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>

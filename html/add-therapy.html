@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Add Therapy, Therapy Management, Admin">
+    <meta name="description" content="Add Therapy for Therapy Management System">
+    <meta name='copyright' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Title -->
+    <title>Add Therapy</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Header Area -->
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo Section -->
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="admin-action.html">
+                            <img src="/img/tech.png" alt="Therapy Logo">
+                        </a>
+                    </div>
+                </div>
+                <!-- Navigation Menu -->
+                <div class="col-lg-9">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="admin-action.html">Home</a></li>
+                                <li><a href="admin-search.html">View Therapies</a></li>
+                                <li><a href="admin-feedback.html">Give Feedback</a></li>
+                                <li><a href="admin-profile.html">Profile</a></li>
+                                <!-- <li><a href="register.html">Register</a></li> -->
+                                <li><a href="admin-logout.html">Logout</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Add Therapy Section -->
+    <section class="add-therapy my-5">
+        <div class="container">
+            <h2 class="mb-4">Add Therapy</h2>
+            
+            <!-- Success Message -->
+            <div id="success-message" class="alert alert-success d-none" role="alert">
+                <!-- Success messages will be displayed here -->
+            </div>
+            
+            <!-- Error Message -->
+            <div id="error-message" class="alert alert-danger d-none" role="alert">
+                <!-- Error messages will be displayed here -->
+            </div>
+            
+            <form id="add-therapy-form">
+                <div class="form-group mb-3">
+                    <label for="therapy-name">Therapy Name</label>
+                    <input type="text" id="therapy-name" class="form-control" placeholder="Enter therapy name" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="therapy-description">Description</label>
+                    <textarea id="therapy-description" class="form-control" rows="4" placeholder="Enter therapy description" required></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="therapy-description">Treatment Result</label>
+                    <textarea id="therapy-description" class="form-control" rows="4" placeholder="Enter therapy description" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Therapy</button>
+            </form>
+        </div>
+    </section>
+    <!-- End Add Therapy Section -->
+
+    <!-- Footer Section -->
+    <footer id="footer" class="footer bg-dark text-white text-center py-3 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-content">
+                        <p class="mb-0">&copy; 2024 Therapy Management System. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Add Therapy JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addTherapyForm = document.getElementById('add-therapy-form');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+
+            addTherapyForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const therapyNameInput = document.getElementById('therapy-name');
+                const therapyDescriptionInput = document.getElementById('therapy-description');
+
+                const therapyName = therapyNameInput.value.trim();
+                const therapyDescription = therapyDescriptionInput.value.trim();
+
+                if (therapyName === '' || therapyDescription === '') {
+                    displayError('Please fill in both Therapy Name and Description.');
+                    return;
+                }
+
+                const therapyData = {
+                    name: therapyName,
+                    description: therapyDescription
+                };
+               
+                fetch('http://localhost:8080/api/admin/add-therapy', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(therapyData)
+                })
+                .then(response => response.json().then(data => ({ status: response.status, body: data })))
+                .then(({ status, body }) => {
+                    if (status === 201) { 
+                        displaySuccess(body.msg || 'Therapy added successfully.');
+                        addTherapyForm.reset();
+                    } else {
+                        displayError(body.msg || 'Failed to add therapy.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error adding therapy:', error);
+                    displayError('An unexpected error occurred. Please try again later.');
+                });
+            });
+
+
+            function displaySuccess(message) {
+                successMessage.textContent = message;
+                successMessage.classList.remove('d-none');
+                errorMessage.classList.add('d-none');
+            }
+
+
+            function displayError(message) {
+                errorMessage.textContent = message;
+                errorMessage.classList.remove('d-none');
+                successMessage.classList.add('d-none');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Therapy Search, Medical, User">
+    <meta name="description" content="Search Therapies in Therapy Management System">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Search Therapies</title>
+    
+    <link rel="icon" href="/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Add styles for the floating content */
+        .floating-content {
+            position: fixed;
+            top: 20px; /* Adjust top position */
+            right: -320px; /* Initially off-screen */
+            width: 320px;
+            height: 80%; /* Adjust height based on content */
+            background-color: #fff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            transition: right 0.3s ease-in-out;
+            z-index: 1000; /* Ensure it appears above other content */
+            overflow-y: auto; /* Allow scrolling for large content */
+        }
+
+        .floating-content.active {
+            right: 20px; /* Position it on screen */
+        }
+
+        /* Chatbot header styles */
+        .chatbot-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: #ff4c4c;
+            border: none;
+            color: white;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #ff0000;
+        }
+
+        /* Chatbot message styles */
+        .chatbot-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .chatbot-message.bot {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .chatbot-message.user {
+            background-color: #d9f9d9;
+            color: #333;
+            align-self: flex-end;
+        }
+
+        .chatbot-body {
+            margin-bottom: 20px;
+        }
+
+        /* Input field and button styles */
+        .chatbot-input {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .chatbot-input input {
+            width: 80%;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .chatbot-input button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background-color: #218838;
+        }
+
+        /* Smooth scroll for chatbot */
+        .chatbot-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        img {
+            max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: Add rounded corners */
+    transition: transform 0.3s ease-in-out; /* Optional: Smooth scale effect on hover */
+}
+
+img:hover {
+    transform: scale(1.05); /* Optional: Slightly enlarge image on hover */
+}
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="user-action.html"><img src="/img/tech.png" alt="Therapy Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="user-action.html">Home</a></li>
+                                <li><a href="search.html">View Therapies</a></li>
+                                <li><a href="gen.html">S-therapy</a></li>
+                                <li><a href="feedback.html">Give Feedback</a></li>
+                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="logout.html">Logout</a></li>
+                                <!-- Chatbot Icon -->
+                                <li><a href="javascript:void(0);" id="chatbotIcon"><img src="/img/chatbot-icon.png" alt="Chatbot" style="width: 30px;"></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<section class="content">
+    <h1>Tissue Engineering</h1>
+
+    <h2>What is Tissue Engineering?</h2>
+    <p>Tissue engineering is a field of regenerative medicine that combines principles of biology and engineering to develop functional substitutes for damaged tissues and organs. The goal is to create biological constructs that can restore, maintain, or improve tissue function. Tissue engineering involves the use of cells, scaffolds, and biologically active molecules to create these constructs.</p>
+
+    <img src="/img/t-e.jpeg" alt="Tissue Engineering">
+
+    <h2>Key Components of Tissue Engineering</h2>
+
+    <h3>1. Cells</h3>
+    <p>Cells are the building blocks of tissue engineering. They can be harvested from the patient's own body (autologous cells) or from donors (allogeneic cells). Stem cells, due to their ability to differentiate into various cell types, are often used in tissue engineering to generate specific tissues or organs.</p>
+
+    <h3>2. Scaffolds</h3>
+    <p>Scaffolds provide a three-dimensional structure for cells to attach, grow, and form tissues. They can be made from natural materials, such as collagen or fibrin, or synthetic materials, such as polylactic acid (PLA) or polyglycolic acid (PGA). Scaffolds must be biocompatible and support cell attachment and proliferation.</p>
+
+    <h3>3. Biologically Active Molecules</h3>
+    <p>Biologically active molecules, such as growth factors and cytokines, are used to regulate cell behavior, promote tissue growth, and ensure proper tissue formation. These molecules can be incorporated into scaffolds or delivered directly to the cells to enhance the tissue engineering process.</p>
+
+    <img src="/img/comp.jpg" alt="Components of Tissue Engineering">
+
+    <h2>Applications of Tissue Engineering</h2>
+    <p>Tissue engineering has numerous applications in regenerative medicine. It is used to develop skin grafts for burn victims, cartilage for joint repair, and even entire organs for transplantation. Tissue-engineered products can also be used in drug testing and development, providing a more accurate model for human tissues than traditional cell cultures or animal models. The field of tissue engineering continues to expand, offering new possibilities for treating a wide range of medical conditions.</p>
+
+    <h2>Recent Developments in Tissue Engineering</h2>
+    <p>Recent advancements in tissue engineering have led to significant breakthroughs. Scientists have successfully grown lab-made organs, such as bladders and tracheas, and transplanted them into patients. 3D printing technology is also being used to create complex tissue structures with high precision, potentially revolutionizing the way tissues and organs are engineered. Ongoing research is focused on improving scaffold materials, enhancing cell sourcing techniques, and developing more effective biologically active molecules.</p>
+
+    <h2>Tissue Engineering Procedures</h2>
+    <p>Tissue engineering procedures typically involve several steps. First, cells are harvested from the patient or a donor. These cells are then cultured and expanded in a laboratory. Next, a scaffold is created, either through traditional fabrication techniques or 3D printing. The cells are then seeded onto the scaffold and cultured under specific conditions to promote tissue formation. Once the engineered tissue reaches the desired maturity, it is implanted into the patient. Post-implantation monitoring is crucial to ensure successful integration and function of the engineered tissue.</p>
+
+    <img src="/img/Tissue_engineering.jpg" alt="Tissue Engineering Procedure">
+
+    <h2>Publications</h2>
+    <ul>
+        <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6423343/" target="_blank">Tissue Engineering: Current Status and Future Perspectives</a></li>
+        <li><a href="https://www.sciencedirect.com/science/article/pii/S0169409X18303672" target="_blank">Advances in 3D Printing for Tissue Engineering</a></li>
+        <li><a href="https://www.frontiersin.org/articles/10.3389/fbioe.2020.00657/full" target="_blank">Biomaterials in Tissue Engineering: Recent Advances</a></li>
+    </ul>
+
+    <h2>Register for Videos and Webinars</h2>
+    <p>To stay updated on the latest developments in tissue engineering, we offer a range of educational videos and webinars. Click the button below to register for our upcoming sessions.</p>
+    <a href="https://forms.gle/your-google-form-link" class="register-btn" target="_blank">Register Now</a>
+</section>
+
+<!-- Custom JS file link -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

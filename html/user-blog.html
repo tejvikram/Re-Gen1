@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Blog</title>
+    <link rel="icon" href="/img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .blog-list {
+            margin-top: 20px;
+        }
+
+        .blog-item {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .blog-item h3 {
+            margin: 0 0 10px;
+        }
+    </style>
+    
+    <script>
+        function displayBlogs() {
+            const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+            const blogList = document.getElementById("blogList");
+            blogList.innerHTML = "";
+
+            blogs.forEach((blog) => {
+                const blogItem = document.createElement("div");
+                blogItem.classList.add("blog-item");
+                blogItem.innerHTML = `<h3>${blog.title}</h3>${blog.content}`;
+                blogList.appendChild(blogItem);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", displayBlogs);
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- Logo Section -->
+                <div class="logo">
+                    <a href="#">
+                        <img src="/img/tech.png" alt="Therapy Logo" style="width: 50px;">
+                    </a>
+                </div>
+
+                <!-- Navigation Section -->
+                <nav class="navigation">
+                    <ul class="nav menu">
+                        <li><a href="user-action.html">Home</a></li>
+                        <li><a href="search.html">View Therapies</a></li>
+                        <li><a href="gen.html">S-Therapy</a></li>
+                        <li><a href="feedback.html">Give Feedback</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="logout.html">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>User Blog</h1>
+        <div class="blog-list" id="blogList"></div>
+    </div>
+</body>
+</html>

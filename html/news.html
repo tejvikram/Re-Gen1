@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest news and updates on regenerative therapies, including stem cell research, tissue regeneration, and gene therapy.">
+    <meta name="keywords" content="regenerative medicine, stem cell research, tissue regeneration, gene therapy, clinical trials, regenerative therapies news">
+    <title>Regenerative Therapies News</title>
+    <link rel="icon" href="/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        #searchInput {
+            width: 70%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #searchButton {
+            padding: 0.5rem 1rem;
+            margin-left: 0.5rem;
+            font-size: 1rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #searchButton:hover {
+            background-color: #2980b9;
+        }
+
+        /* News Articles */
+        #newsContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .news-article {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-article h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-article p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-article a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .news-article a:hover {
+            text-decoration: underline;
+        }
+
+        /* Error Message */
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- Logo Section -->
+                <div class="logo">
+                    <a href="#">
+                        <img src="/img/tech.png" alt="Therapy Logo" style="width: 50px;">
+                        
+                    </a>
+                </div>
+
+                <!-- Navigation Section -->
+                <nav class="navigation">
+                    <ul class="nav menu">
+                        <li><a href="user-action.html">Home</a></li>
+                        <li><a href="search.html">View Therapies</a></li>
+                        <li><a href="gen.html">S-Therapy</a></li>
+                        <li><a href="feedback.html">Give Feedback</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="logout.html">Logout</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Settings Section -->
+                
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search news..." />
+                <button id="searchButton">Search</button>
+            </div>
+            <div id="newsContainer">
+                <!-- News articles will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Replace with your NewsAPI key
+        const apiKey = 'f395943f590b4aecb834257d3c3f322d';
+
+        // Function to fetch news articles
+        async function fetchNews(query = 'regenerative medicine') {
+            const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${apiKey}`;
+
+            try {
+                // Fetch the news data
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.status === 'ok') {
+                    displayNews(data.articles);
+                } else {
+                    console.log('Error fetching news:', data.message);
+                    displayError(data.message);
+                }
+            } catch (error) {
+                console.log('Error:', error);
+                displayError('An error occurred while fetching the news.');
+            }
+        }
+
+        // Function to display news articles
+        function displayNews(articles) {
+            const newsContainer = document.getElementById('newsContainer');
+            newsContainer.innerHTML = ''; // Clear any existing content
+
+            if (articles.length === 0) {
+                newsContainer.innerHTML = '<p>No articles found for your search query.</p>';
+                return;
+            }
+
+            // Loop through articles and create HTML elements for each one
+            articles.forEach(article => {
+                const articleElement = document.createElement('div');
+                articleElement.classList.add('news-article');
+
+                const articleTitle = document.createElement('h3');
+                articleTitle.textContent = article.title;
+
+                const articleDescription = document.createElement('p');
+                articleDescription.textContent = article.description;
+
+                const articleLink = document.createElement('a');
+                articleLink.href = article.url;
+                articleLink.target = '_blank';
+                articleLink.textContent = 'Read more';
+
+                articleElement.appendChild(articleTitle);
+                articleElement.appendChild(articleDescription);
+                articleElement.appendChild(articleLink);
+
+                newsContainer.appendChild(articleElement);
+            });
+        }
+
+        // Function to display error messages
+        function displayError(message) {
+            const newsContainer = document.getElementById('newsContainer');
+            newsContainer.innerHTML = `<p class="error">${message}</p>`;
+        }
+
+        // Event listener for the search button
+        document.getElementById('searchButton').addEventListener('click', () => {
+            const searchInput = document.getElementById('searchInput').value.trim();
+            if (searchInput) {
+                fetchNews(searchInput);
+            } else {
+                fetchNews('regenerative medicine'); // Default query
+            }
+        });
+
+        // Fetch default news when the page loads
+        document.addEventListener('DOMContentLoaded', () => fetchNews());
+    </script>
+</body>
+</html>

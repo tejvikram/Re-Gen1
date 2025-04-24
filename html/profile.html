@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="User Profile, Therapy Management, Medical">
+    <meta name="description" content="User Profile for Therapy Management System">
+    <meta name='copyright' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>User Profile</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Header Area -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="user-action.html"><img src="/img/tech.png" alt="Therapy Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="user-action.html">Home</a></li>
+                                <li><a href="search.html">View Therapies</a></li>
+                                <li><a href="feedback.html">Give Feedback</a></li>
+                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="logout.html" onclick="logout()">Logout</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="user-profile py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">User Profile</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <!-- Bootstrap Card for User Profile -->
+                    <div class="card shadow-lg border-light rounded">
+                        <div class="card-body text-center">
+                            <!-- Profile Image (Placeholder) -->
+                            <img src="/img/pf3.jpg" alt="User Avatar" class="img-fluid rounded-circle mb-4" style="width: 120px; height: 120px;">
+                            
+                            <!-- User Info -->
+                            <h4 class="card-title mb-2" id="username">User Name</h4>
+                            <p class="card-text text-muted">Regular User</p>
+
+                            <!-- Display User Info -->
+                            <p><strong>Id:</strong> <span id="userId">12345</span></p> 
+                            <p><strong>Registered Therapies:</strong> <span id="therapies">No therapies yet</span></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="footer bg-dark text-white text-center py-3 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-content">
+                        <p class="mb-0">&copy; 2024 Therapy Management System. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script>
+        function loadUserProfile() {
+            const userId = localStorage.getItem('userId');
+            const username = localStorage.getItem('username');
+            const therapies = localStorage.getItem('therapies'); 
+            
+            if (username) {
+                document.getElementById('userId').textContent = userId || 'N/A';
+                document.getElementById('username').textContent = username || 'User Name';
+                document.getElementById('therapies').textContent = therapies || 'No therapies yet';
+            } else {
+                alert('Please log in to view your profile.');
+                window.location.href = 'login.html';
+            }
+        }
+
+        window.onload = loadUserProfile;
+        
+        function logout() {
+            localStorage.clear(); 
+            window.location.href = 'login.html';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Therapy Search, Medical, User">
+    <meta name="description" content="Search Therapies in Therapy Management System">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Search Therapies</title>
+    
+    <link rel="icon" href="/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Add styles for the floating content */
+        .floating-content {
+            position: fixed;
+            top: 20px; /* Adjust top position */
+            right: -320px; /* Initially off-screen */
+            width: 320px;
+            height: 80%; /* Adjust height based on content */
+            background-color: #fff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px 0 0 10px;
+            transition: right 0.3s ease-in-out;
+            z-index: 1000; /* Ensure it appears above other content */
+            overflow-y: auto; /* Allow scrolling for large content */
+        }
+
+        .floating-content.active {
+            right: 20px; /* Position it on screen */
+        }
+
+        /* Chatbot header styles */
+        .chatbot-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: #ff4c4c;
+            border: none;
+            color: white;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #ff0000;
+        }
+
+        /* Chatbot message styles */
+        .chatbot-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .chatbot-message.bot {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .chatbot-message.user {
+            background-color: #d9f9d9;
+            color: #333;
+            align-self: flex-end;
+        }
+
+        .chatbot-body {
+            margin-bottom: 20px;
+        }
+
+        /* Input field and button styles */
+        .chatbot-input {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .chatbot-input input {
+            width: 80%;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .chatbot-input button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background-color: #218838;
+        }
+
+        /* Smooth scroll for chatbot */
+        .chatbot-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        img {
+            max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: Add rounded corners */
+    transition: transform 0.3s ease-in-out; /* Optional: Smooth scale effect on hover */
+}
+
+img:hover {
+    transform: scale(1.05); /* Optional: Slightly enlarge image on hover */
+}
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header Area -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="user-action.html"><img src="/img/tech.png" alt="Therapy Logo"></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="main-menu">
+                        <nav class="navigation">
+                            <ul class="nav menu">
+                                <li><a href="user-action.html">Home</a></li>
+                                <li><a href="search.html">View Therapies</a></li>
+                                <li><a href="gen.html">S-therapy</a></li>
+                                <li><a href="feedback.html">Give Feedback</a></li>
+                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="logout.html">Logout</a></li>
+                                <!-- Chatbot Icon -->
+                                <li><a href="javascript:void(0);" id="chatbotIcon"><img src="/img/chatbot-icon.png" alt="Chatbot" style="width: 30px;"></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="content">
+        <h1>Stem Cell Therapy</h1>
+    
+        <h2>What is Stem Cell Therapy?</h2>
+        <p>Stem Cell Therapy is a groundbreaking medical treatment that leverages the regenerative power of stem cells to repair, replace, or regenerate damaged tissues and organs. Stem cells are undifferentiated cells capable of developing into specialized cell types. This therapy is used in various fields, including orthopedics, neurology, and cardiology, to address chronic conditions and injuries. By introducing stem cells into the affected area, this treatment aims to enhance the body’s natural healing processes and restore function.</p>
+    
+        <img src="/img/stem-cell.jpg" alt="Stem Cell">
+    
+        <h2>Applications of Stem Cell Therapy</h2>
+        <p>Stem Cell Therapy has diverse applications in medicine. In orthopedics, it is used to treat joint pain, cartilage damage, and tendon injuries. Neurological conditions such as Parkinson’s disease, multiple sclerosis, and spinal cord injuries are also being targeted by stem cell research. In cardiology, stem cells are employed to repair heart tissue after a heart attack. Moreover, this therapy is showing promise in treating autoimmune diseases, diabetes, and even some forms of cancer. The versatility of stem cells makes them a vital component of modern regenerative medicine.</p>
+    
+        <h2>Recent Developments in Stem Cell Therapy</h2>
+        <p>Recent advancements in stem cell research focus on improving the safety and efficacy of treatments. Innovations include the use of induced pluripotent stem cells (iPSCs), which are derived from adult cells and reprogrammed to behave like embryonic stem cells. This eliminates ethical concerns associated with stem cell harvesting. Researchers are also exploring 3D bioprinting combined with stem cells to create functional tissues and organs. Additionally, studies are examining the potential of stem cell exosomes—small vesicles secreted by stem cells—to deliver therapeutic benefits without the need for direct stem cell transplantation.</p>
+    
+        <h2>Stem Cell Therapy Procedure</h2>
+        <p>The procedure for Stem Cell Therapy typically involves harvesting stem cells from the patient’s bone marrow, fat tissue, or blood. The extracted stem cells are then processed and concentrated in a laboratory. Once prepared, the stem cells are injected into the affected area under sterile conditions. For certain conditions, allogeneic stem cells from donors may be used. The procedure is minimally invasive, with patients experiencing little to no downtime. Common side effects include temporary soreness or swelling at the injection site.</p>
+    
+        <img src="/img/stem-cell-surgery.jpg" alt="Stem Cell Procedure">
+    
+        <h2>Publications</h2>
+        <ul>
+            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4657013/" target="_blank">Advances in Stem Cell Research and Applications</a></li>
+            <li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0176142" target="_blank">Stem Cell Therapy for Neurological Disorders</a></li>
+            <li><a href="https://www.sciencedirect.com/science/article/pii/S0142961219303646" target="_blank">The Role of Stem Cells in Regenerative Medicine</a></li>
+        </ul>
+    
+        <h2>Register for Videos and Webinars</h2>
+        <p>To learn more about Stem Cell Therapy and stay informed on the latest breakthroughs, register for our educational videos and webinars. Click the button below to sign up for our upcoming sessions.</p>
+        <a href="https://forms.gle/your-google-form-link" class="register-btn" target="_blank">Register Now</a>
+
+    </section>
+    
+
+    <!-- Chatbot Container (Initially hidden) -->
+    <div class="floating-content" id="floatingContent">
+        <div class="chatbot-header">
+            Health Chatbot
+            <button class="close-btn" onclick="closeChatbot()">×</button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chatbot-message bot">Hi! I can help you with treatment recommendations and solutions. Ask me about therapies like "Stem Cell Therapy" or "Gene Therapy"!</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your question here...">
+            <button onclick="handleChatbotQuery()">Send</button>
+        </div>
+    </div>
+
+    <!-- Custom JS file link -->
+    <script src="js/script.js"></script>
+    <script>
+        // Toggle the visibility of the floating content when the icon is clicked
+        document.getElementById('chatbotIcon').addEventListener('click', function() {
+            const floatingContent = document.getElementById('floatingContent');
+            floatingContent.classList.toggle('active');
+        });
+        
+        // Close the chatbot
+        function closeChatbot() {
+            const floatingContent = document.getElementById('floatingContent');
+            floatingContent.classList.remove('active');
+        }
+        
+        // Function to handle the user query and save chat history
+        function handleChatbotQuery() {
+            const inputField = document.getElementById('chatbotInput');
+            const chatbotBody = document.getElementById('chatbotBody');
+            const userMessage = inputField.value.trim();
+        
+            if (userMessage) {
+                // Display user message
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'chatbot-message user';
+                userMessageDiv.textContent = userMessage;
+                chatbotBody.appendChild(userMessageDiv);
+        
+                // Save chat history to localStorage
+                saveChatHistory('user', userMessage);
+        
+                // Provide bot response
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.className = 'chatbot-message bot';
+        
+                let response = getBotResponse(userMessage);
+                botMessageDiv.textContent = response;
+                chatbotBody.appendChild(botMessageDiv);
+        
+                // Save bot response to localStorage
+                saveChatHistory('bot', response);
+        
+                // Scroll to the bottom
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        
+                // Clear input field
+                inputField.value = '';
+            }
+        }
+        
+        // Function to generate bot response based on the user input
+        function getBotResponse(userMessage) {
+            let response;
+        
+            if (userMessage.toLowerCase().includes('stem cell therapy')) {
+                response = 'Stem Cell Therapy involves using stem cells to repair or regenerate damaged tissues. It can treat conditions like leukemia, arthritis, and spinal cord injuries.';
+            } else if (userMessage.toLowerCase().includes('gene therapy')) {
+                response = 'Gene Therapy involves modifying or replacing defective genes to treat genetic disorders like cystic fibrosis and muscular dystrophy.';
+            } else if (userMessage.toLowerCase().includes('immunotherapy')) {
+                response = 'Immunotherapy boosts or modifies the immune system to fight diseases like cancer. It includes treatments like monoclonal antibodies and checkpoint inhibitors.';
+            } else if (userMessage.toLowerCase().includes('organ regeneration')) {
+                response = 'Organ Regeneration uses techniques like 3D bioprinting and stem cells to grow or repair damaged organs, addressing donor shortages.';
+            } else if (userMessage.toLowerCase().includes('changes in the body after stem cell treatment')) {
+                response = 'After Stem Cell Therapy, patients may experience reduced inflammation, improved tissue repair, and enhanced functionality in the treated area. Long-term outcomes depend on the condition being treated and the type of stem cells used.';
+            } else if (userMessage.toLowerCase().includes('therapy')) {
+                response = 'I can help with various therapies like Stem Cell Therapy, Gene Therapy, Immunotherapy, and more! Just ask about a specific treatment.';
+            } else {
+                response = 'I\'m sorry, I don\'t have information on that topic yet. Please ask about treatments like Stem Cell Therapy or Gene Therapy.';
+            }
+        
+            return response;
+        }
+        
+        // Function to save chat history to localStorage
+        function saveChatHistory(sender, text) {
+            const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+            chatHistory.push({ sender, text });
+            localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+        }
+        
+        // Load chat history from localStorage
+        function loadChatHistory() {
+            const chatbotBody = document.getElementById('chatbotBody');
+            const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+        
+            chatHistory.forEach(message => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `chatbot-message ${message.sender}`;
+                messageDiv.textContent = message.text;
+                chatbotBody.appendChild(messageDiv);
+            });
+        }
+        
+        // Button-based interaction - Predefined questions
+        function sendPredefinedQuery(query) {
+            const inputField = document.getElementById('chatbotInput');
+            inputField.value = query;
+            handleChatbotQuery(); // Call the function to process the query
+        }
+        
+        // Initialize chat history
+        window.onload = loadChatHistory;
+        
+        // Rich media responses (e.g., images or links)
+        function richMediaResponse(userMessage) {
+            const responseDiv = document.createElement('div');
+            responseDiv.className = 'chatbot-message bot';
+            let response;
+        
+            if (userMessage.toLowerCase().includes('stem cell therapy')) {
+                response = `<p>Stem Cell Therapy uses stem cells to treat various conditions. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4657013/" target="_blank">Learn more about it here.</a></p>`;
+            } else {
+                response = 'I can share more info with you. Ask me about specific therapies!';
+            }
+        
+            responseDiv.innerHTML = response;
+            document.getElementById('chatbotBody').appendChild(responseDiv);
+        }
+        </script>
+        
+        
+        
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Assistance - Regenerative Therapies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            z-index: 1000;
+        }
+
+        .chat-header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .chat-body {
+            background-color: #f8f9fa;
+            height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .chat-footer {
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .chat-footer input {
+            flex-grow: 1;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .chat-footer button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <!-- Header -->
+    <header class="bg-white shadow sticky-top py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="text-decoration-none text-primary fw-bold">
+                <img src="/img/tech.png" alt="Therapy Logo" class="me-2" height="40"> Regenerative Therapy System
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-dark" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="therapies.html">Therapies</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <h1 class="text-primary fw-bold mb-4">Chatbot Assistance</h1>
+        <p>Our AI-powered chatbot is here to provide real-time assistance with your queries about regenerative therapies. Whether you have questions about specific treatments, eligibility, or research, our chatbot will guide you efficiently.</p>
+        <ul>
+            <li>Learn about therapies like Stem Cell Therapy, PRP Therapy, and Cryotherapy.</li>
+            <li>Get immediate answers to FAQs.</li>
+            <li>Connect with experts if the chatbot cannot resolve your query.</li>
+        </ul>
+        <p>Try it out by interacting with the chatbot widget on this page!</p>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container shadow">
+        <div class="chat-header">
+            <h5>Therapy Chatbot Assistance</h5>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="text-start mb-3">
+                <span class="badge bg-secondary">Chatbot:</span>
+                <span>Welcome! How can I assist you today?</span>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button id="sendBtn">Send</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Regenerative Therapy Management System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const chatBody = document.getElementById("chatBody");
+        const userInput = document.getElementById("userInput");
+        const sendBtn = document.getElementById("sendBtn");
+
+        sendBtn.addEventListener("click", () => {
+            const userMessage = userInput.value;
+            if (userMessage.trim()) {
+                const userChat = `<div class='text-end mb-3'><span class='badge bg-primary'>You:</span> <span>${userMessage}</span></div>`;
+                chatBody.innerHTML += userChat;
+
+                // Simulate chatbot response
+                setTimeout(() => {
+                    const botResponse = `<div class='text-start mb-3'><span class='badge bg-secondary'>Chatbot:</span> <span>Thank you for your question. Let me assist you with that.</span></div>`;
+                    chatBody.innerHTML += botResponse;
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 1000);
+
+                userInput.value = "";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

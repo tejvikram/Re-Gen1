@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Patents - Regenerative Therapies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e9f8ff, #f3eaff);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        header a {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hero-section {
+            background-image: url('https://source.unsplash.com/1920x600/?medical,research');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            color: #444;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .timeline ul li {
+            position: relative;
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+
+        .timeline ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: #007bff;
+            border-radius: 50%;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #007bff);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="sticky-top py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="text-decoration-none text-primary fw-bold">
+                <img src="/img/tech.png" alt="Therapy Logo" class="me-2" height="40"> 
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-dark" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="therapies.html">Therapies</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="hero-section">
+        <div>
+            <h1>Research & Patents</h1>
+            <p>Discover groundbreaking advancements in regenerative therapies</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Patents Section -->
+        <section class="mb-5">
+            <h2>Available Patents</h2>
+            <p>Explore groundbreaking patents that have advanced regenerative therapies.</p>
+            <ul class="list-group">
+                <li class="list-group-item">Patent 1: Stem Cell Isolation Techniques (US1234567)</li>
+                <li class="list-group-item">Patent 2: Cryotherapy Devices for Medical Applications (US7654321)</li>
+                <li class="list-group-item">Patent 3: PRP Concentration Methods for Therapeutic Use (US9876543)</li>
+            </ul>
+        </section>
+
+        <!-- Research Publications -->
+        <section class="mb-5">
+            <h2>Research Papers & Publications</h2>
+            <h3>Stem-Cell</h3>
+            <ul>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4657013/" target="_blank">Study on Stem Cell Applications in Tissue Engineering</a></li>
+                <li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0176142" target="_blank">Innovations in Platelet-Rich Plasma Therapy</a></li>
+                <li><a href="https://www.sciencedirect.com/science/article/pii/S0142961219303646" target="_blank">Cryotherapy for Chronic Pain Management</a></li>
+            </ul>
+            <h3>Prp-Therapy</h3>
+            <ul>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6867222/" target="_blank">Platelet-Rich Plasma Therapy: A Review</a></li>
+                <li><a href="https://www.sciencedirect.com/science/article/pii/S2211563820300859" target="_blank">Recent Advances in Platelet-Rich Plasma Therapy</a></li>
+                <li><a href="https://www.frontiersin.org/articles/10.3389/fmed.2020.00321/full" target="_blank">Platelet-Rich Plasma in Orthopedics: A Review</a></li>
+            </ul>
+            <h3>Cyrotherapy</h3>
+            <ul>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6081408/" target="_blank">Cryotherapy: The Therapeutic Effects of Cold</a></li>
+                <li><a href="https://journals.sagepub.com/doi/10.1177/1753492807080113" target="_blank">Cryotherapy for Athletes: A Review of the Evidence</a></li>
+                <li><a href="https://www.sciencedirect.com/science/article/pii/S0022354917307381" target="_blank">The Effects of Cryotherapy on Muscle Recovery</a></li>
+            </ul>
+            <h3>Gene-therapy</h3>
+            <ul>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6562861/" target="_blank">Advances in Gene Therapy for Genetic Disorders</a></li>
+                <li><a href="https://www.sciencedirect.com/science/article/pii/S1525001620302402" target="_blank">Gene Therapy in Cancer Treatment: Recent Developments</a></li>
+                <li><a href="https://www.frontiersin.org/articles/10.3389/fmed.2020.00328/full" target="_blank">CRISPR and Gene Editing: Applications and Ethical Considerations</a></li>
+            </ul>        
+        </section>
+
+        <!-- Collaborating Researchers -->
+        <section class="mb-5">
+            <h2>Collaborating Researchers</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Dr. Jane Doe</h5>
+                            <p class="card-text">Expert in Stem Cell Therapy Research</p>
+                            <a href="mailto:jane.doe@example.com" class="btn btn-primary">Email</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Dr. John Smith</h5>
+                            <p class="card-text">Innovator in PRP Applications</p>
+                            <a href="mailto:john.smith@example.com" class="btn btn-primary">Email</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Dr. Emily White</h5>
+                            <p class="card-text">Cryotherapy Device Specialist</p>
+                            <a href="mailto:emily.white@example.com" class="btn btn-primary">Email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Regenerative Therapy Management System. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

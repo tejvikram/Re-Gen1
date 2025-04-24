@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Comprehensive Regenerative Therapy Management System">
+    <title>Regenerative Therapy Management System</title>
+    <link rel="icon" href="/img/favicon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Header Styles */
+        .Logo {
+            width: 150px; /* Adjust this value as needed */
+            height: auto; /* Maintains the aspect ratio */
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #4c9fda, #065f9a);
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ffd700;
+        }
+
+        .dropdown-menu {
+            background-color: #065f9a;
+        }
+
+        .dropdown-item:hover {
+            background-color: #4c9fda;
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header>
+        <div class="bg-blue-600">
+            <div class="container mx-auto flex justify-between items-center py-4 px-6">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <img src="/img/tech.png" alt="Logo" class="Logo">
+                </div>
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-white hover:text-blue-300">Home</a>
+                    <a href="about.html" class="text-white hover:text-blue-300">About</a>
+                    <div class="relative group">
+                        <a href="#" class="text-white hover:text-blue-300">Blog</a>
+            
+                    </div>
+                    <div class="relative group">
+                        <a href="#" class="text-white hover:text-blue-300">Pages</a>
+                        <ul class="absolute hidden group-hover:block bg-blue-600 shadow-lg text-white">
+                            <li><a href="department.html" class="block px-4 py-2 hover:bg-blue-700">Department</a></li>
+                            <li><a href="elements.html" class="block px-4 py-2 hover:bg-blue-700">Elements</a></li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="text-white hover:text-blue-300">Contact</a>
+                </nav>
+                <!-- Book Appointment Button -->
+                <a href="login.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg shadow hover:bg-gray-100">Sign Up</a>
+                <!-- Mobile Menu Icon -->
+                <button id="menu-btn" class="md:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-blue-600 text-white px-6 py-4">
+                <a href="index.html" class="block py-2 hover:bg-blue-700">Home</a>
+                <a href="about.html" class="block py-2 hover:bg-blue-700">About</a>
+                <a href="blog.html" class="block py-2 hover:bg-blue-700">Blog</a>
+                <a href="contact.html" class="block py-2 hover:bg-blue-700">Contact</a>
+            </div>
+        </div>
+    </header>
+    
+    
+
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center text-white h-screen" style="background-image: url('/img/slider.jpg')">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900 via-blue-800 to-transparent opacity-80"></div>
+        <div class="container mx-auto px-4 lg:px-8 relative z-10 flex items-center h-full">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl font-bold mb-4">Revolutionizing <span class="text-yellow-400">Regenerative Therapies</span></h1>
+                <p class="text-lg mb-6">Discover cutting-edge therapies that restore health and well-being.</p>
+                <a href="#therapies" class="btn btn-primary mr-2">Explore Therapies</a>
+            </div>
+        </div>
+    </section>
+<!-- About Section -->
+    <section id="about" class="py-12 bg-white">
+        <div class="container mx-auto px-4 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-blue-600">About Regenerative Therapies</h2>
+            <p class="text-lg mb-6">Regenerative medicine is transforming healthcare by repairing, replacing, and regenerating damaged tissues or organs through advanced therapies.</p>
+        </div>
+    </section>
+
+    <!-- Therapies Section -->
+    <section id="therapies" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4 lg:px-8">
+            <h2 class="text-4xl font-bold mb-8 text-blue-600 text-center">Our Therapies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 shadow rounded-lg">
+                    <img src="/img/stem-cell.jpg" alt="Stem Cell Therapy" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Stem Cell Therapy</h3>
+                    <p>Utilizes stem cells to repair or replace damaged tissues, offering hope for chronic conditions.</p>
+                </div>
+                <div class="bg-white p-6 shadow rounded-lg">
+                    <img src="/img/prp.jpeg" alt="PRP Therapy" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-semibold mb-2">PRP Therapy</h3>
+                    <p>Platelet-Rich Plasma accelerates healing and regeneration using your body's own growth factors.</p>
+                </div>
+                <div class="bg-white p-6 shadow rounded-lg">
+                    <img src="/img/cyrotherapy.jpeg" alt="Cryotherapy" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Cryotherapy</h3>
+                    <p>Uses extremely cold temperatures to reduce inflammation and promote healing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-12 bg-white">
+        <div class="container mx-auto px-4 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-blue-600">What Our Clients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-100 p-6 shadow rounded-lg">
+                    <p class="italic">"The stem cell therapy completely transformed my life. I am now pain-free!"</p>
+                    <h3 class="text-lg font-semibold mt-4">- Sarah Johnson</h3>
+                </div>
+                <div class="bg-gray-100 p-6 shadow rounded-lg">
+                    <p class="italic">"Thanks to PRP therapy, my injury healed faster than I ever thought possible."</p>
+                    <h3 class="text-lg font-semibold mt-4">- Michael Lee</h3>
+                </div>
+                <div class="bg-gray-100 p-6 shadow rounded-lg">
+                    <p class="italic">"Cryotherapy was a game-changer for my recovery after surgery."</p>
+                    <h3 class="text-lg font-semibold mt-4">- Emily Davis</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section id="newsletter" class="py-12 bg-blue-800 text-white text-center">
+        <div class="container mx-auto px-4 lg:px-8">
+            <h2 class="text-4xl font-bold mb-6">Stay Updated</h2>
+            <p class="text-lg mb-6">Subscribe to our newsletter to receive the latest updates and insights on regenerative therapies.</p>
+            <form action="subscribe.html" method="post" class="max-w-md mx-auto">
+                <input type="email" name="email" placeholder="Enter your email" required class="form-control mb-3">
+                <button type="submit" class="btn btn-primary w-full">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-blue-800 text-white text-center">
+        <p>&copy; 2024 Regenerative Therapy Management System. All rights reserved.</p>
+    </footer>
+
+   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mobile menu toggle script
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+    
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
